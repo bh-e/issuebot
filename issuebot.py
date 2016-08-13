@@ -94,6 +94,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
         def foo():
            data = json.loads(request.data)
            message = data["commits"][0]["message"]
+           self.send_message(mbody=message)
            return "OK"
         if __name__ == '__main__':
            app.run(host= '0.0.0.0')
