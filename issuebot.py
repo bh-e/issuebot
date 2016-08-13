@@ -44,19 +44,17 @@ class MUCBot(sleekxmpp.ClientXMPP):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
   
 
-        app = Flask(__name__)
-        @app.route('/',methods=['POST'])
-        def foo():
-            data = json.loads(request.data)
-            message = data["commits"][0]["message"]
-            return "OK"
-        if __name__ == '__main__':
-        app.run(host= '0.0.0.0')
+        #app = Flask(__name__)
+        #@app.route('/',methods=['POST'])
+        #def foo():
+        #   data = json.loads(request.data)
+        #   message = data["commits"][0]["message"]
+        #   return "OK"
+        #if __name__ == '__main__':
+        #   app.run(host= '0.0.0.0')
         
         self.room = room
         self.nick = nick
-        self.msg = message
-
         # The session_start event will be triggered when
         # the bot establishes its connection with the server
         # and the XML streams are ready for use. We want to
@@ -68,8 +66,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
         # stanza is received from any chat room. If you also also
         # register a handler for the 'message' event, MUC messages
         # will be processed by both handlers.
-        self.add_event_handler("groupchat_message", self.muc_message)
-
+        
         # The groupchat_presence event is triggered whenever a
         # presence stanza is received from any chat room, including
         # any presences you send yourself. To limit event handling
@@ -78,9 +75,9 @@ class MUCBot(sleekxmpp.ClientXMPP):
         self.add_event_handler("muc::%s::got_online" % self.room,
                                self.muc_online)
  
-        self.send_message(mto=msg['from'].bare,
-                                          mbody=message,
-                                          mtype='groupchat')
+        #self.send_message(mto=msg['from'].bare,
+        #                                  mbody=message,
+        #                                  mtype='groupchat')
 
     def start(self, event):
         """
