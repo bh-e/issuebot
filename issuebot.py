@@ -43,16 +43,6 @@ class MUCBot(sleekxmpp.ClientXMPP):
     def __init__(self, jid, password, room, nick):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
   
-
-        app = Flask(__name__)
-        @app.route('/',methods=['POST'])
-        def foo():
-           data = json.loads(request.data)
-           message = data["commits"][0]["message"]
-           return "OK"
-        if __name__ == '__main__':
-           app.run(host= '0.0.0.0')
-        
         self.room = room
         self.nick = nick
         # The session_start event will be triggered when
@@ -99,7 +89,14 @@ class MUCBot(sleekxmpp.ClientXMPP):
                                         # If a room password is needed, use:
                                         # password=the_room_password,
                                         wait=True)
-
+                app = Flask(__name__)
+        @app.route('/',methods=['POST'])
+        def foo():
+           data = json.loads(request.data)
+           message = data["commits"][0]["message"]
+           return "OK"
+        if __name__ == '__main__':
+           app.run(host= '0.0.0.0')
     
 
     def muc_online(self, presence):
