@@ -44,14 +44,14 @@ class MUCBot(sleekxmpp.ClientXMPP):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
   
 
-        #app = Flask(__name__)
-        #@app.route('/',methods=['POST'])
-        #def foo():
-        #   data = json.loads(request.data)
-        #   message = data["commits"][0]["message"]
-        #   return "OK"
-        #if __name__ == '__main__':
-        #   app.run(host= '0.0.0.0')
+        app = Flask(__name__)
+        @app.route('/',methods=['POST'])
+        def foo():
+           data = json.loads(request.data)
+           message = data["commits"][0]["message"]
+           return "OK"
+        if __name__ == '__main__':
+           app.run(host= '0.0.0.0')
         
         self.room = room
         self.nick = nick
