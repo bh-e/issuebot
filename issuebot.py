@@ -89,7 +89,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
                                         # If a room password is needed, use:
                                         # password=the_room_password,
                                         wait=True)
-                app = Flask(__name__)
+        app = Flask(__name__)
         @app.route('/',methods=['POST'])
         def foo():
            data = json.loads(request.data)
