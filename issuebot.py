@@ -96,7 +96,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
          #  data = json.loads(request.data)
         message = "i joined" #data["commits"][0]["message"]
            #try:
-        self.send_message(mto=room['from'].bare,
+        self.send_message(mto=['from'].bare,
                                           mbody=message,
                                           mtype='groupchat')
 	   #except:
