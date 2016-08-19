@@ -101,7 +101,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
                                           mtype='groupchat')
 	   #except:
             #    sys.exc_info()[0]
-           return "OK"
+           #return "OK"
         if __name__ == '__main__':
            app.run(host= '0.0.0.0')
     
