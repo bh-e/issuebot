@@ -94,7 +94,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
         @app.route('/',methods=['POST'])
         def foo():
            data = json.loads(request.data)
-           message = "heeelllo" #data["commits"][0]["message"]
+           message = data["commits"][0]["message"]
            #try:
            self.send_message(mto=self.room,mbody=message,mtype='groupchat')
 	   #except:
