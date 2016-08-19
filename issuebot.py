@@ -37,7 +37,8 @@ else:
 class MUCBot(sleekxmpp.ClientXMPP):
 
     """
-    A bot which messages during creation/commenting issues 
+    A bot which messages to group chat when creating/commenting
+    issues of a specified gitlab/github project (webhooks)  
     """
 
     def __init__(self, jid, password, room, nick):
@@ -95,7 +96,9 @@ class MUCBot(sleekxmpp.ClientXMPP):
            data = json.loads(request.data)
            message = data["commits"][0]["message"]
            try:
-           	self.send_message(mbody=message,mtype='groupchat')
+           	self.send_message(mto=msg['from'].bare,
+                                          mbody=message,
+                                          mtype='groupchat')
 	   except:
                 sys.exc_info()[0]
            return "OK"
