@@ -53,16 +53,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
         # our roster.
         self.add_event_handler("session_start", self.start)
 
-        # The groupchat_message event is triggered whenever a message
-        # stanza is received from any chat room. If you also also
-        # register a handler for the 'message' event, MUC messages
-        # will be processed by both handlers.
         
-        # The groupchat_presence event is triggered whenever a
-        # presence stanza is received from any chat room, including
-        # any presences you send yourself. To limit event handling
-        # to a single room, use the events muc::room@server::presence,
-        # muc::room@server::got_online, or muc::room@server::got_offline.
         self.add_event_handler("muc::%s::got_online" % self.room,
                                self.muc_online)
  
