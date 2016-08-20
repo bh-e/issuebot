@@ -94,7 +94,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
 	   #m1 = data["commits"][0]["message"]
            m2 = data["object_attributes"][0]["title"]
 	   m3 = data["object_attributes"][0]["url"]
-           message=m1," ",m2, " ",m3
+           message=m2, " ",m3
            #try:
            self.send_message(mto=self.room,mbody=message,mtype='groupchat')
 	   #except:
