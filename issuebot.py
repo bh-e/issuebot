@@ -82,12 +82,12 @@ class MUCBot(sleekxmpp.ClientXMPP):
         @app.route('/',methods=['POST'])
         def foo():
            data = json.loads(request.data)
-	   message="null"
+	   #message="null"
 	   m1 = data["user"]["username"]
            m2 = data["object_attributes"]["title"]
 	   m3 = data["object_attributes"]["url"]
 	   #m4 = data["object_attributes"]["note"]
-           m5 = data["issue"]["title"]
+           #m5 = data["issue"]["title"]
 	   #if "issue" == data["object_kind"]:
            message=m1 + "created a new issue: " + m2 + " " + m3
           # else:
