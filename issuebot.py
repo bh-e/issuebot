@@ -89,7 +89,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
 	   #m4 = data["object_attributes"]["note"]
            m5 = data["issue"]["title"]
 	   #if "issue" == data["object_kind"]:
-           message=m1 + 'created a new issue: ' + m2 + ' ' + m3
+           message=m1 + "created a new issue: " + m2 + " " + m3
           # else:
                 #message=m1 + 'commented: ' + m4 + 'on issue:: ' + m5 + m3
            #try:
