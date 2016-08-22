@@ -81,20 +81,21 @@ class MUCBot(sleekxmpp.ClientXMPP):
         @app.route('/', methods=['POST'])
         def foo():
             data = json.loads(request.data)
-            # message="null"
+            issue_id = data['object_attributes']['iid']
+            issue_title = data['object_attributes']['title']
+            issue_user = data['user']['name']
+            state = data['object_attributes']['state']
+            msg = "Issue #%d %s - %s by %s" % (issue_id,
+                                               state,
+                                               issue_title,
+                                               issue_user
+                                               )
+            print msg
             m1 = data["user"]["username"]
             m2 = data["object_attributes"]["title"]
             m3 = data["object_attributes"]["url"]
-            #m4 = data["object_attributes"]["note"]
-            #m5 = data["issue"]["title"]
-            # if "issue" == data["object_kind"]:
             message = m1 + " created a new issue:--> " + m2 + " " + m3
-           # else:
-            #message=m1 + 'commented: ' + m4 + 'on issue:: ' + m5 + m3
-            # try:
-            self.send_message(mto=self.room, mbody=message, mtype='groupchat')
-            # except:
-            #    sys.exc_info()[0]
+            self.send_message(mto=self.room, mbody=msg, mtype='groupchat')
             return "OK"
         if __name__ == '__main__':
             app.run(host='0.0.0.0')
