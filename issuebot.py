@@ -38,12 +38,12 @@ class MUCBot(sleekxmpp.ClientXMPP):
 
     """
     A bot which messages to group chat when creating/commenting
-    issues of a specified gitlab/github project (webhooks)  
+    issues of a specified gitlab/github project (webhooks)
     """
 
     def __init__(self, jid, password, room, nick):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
-  
+
         self.room = room
         self.nick = nick
         # The session_start event will be triggered when
@@ -53,11 +53,9 @@ class MUCBot(sleekxmpp.ClientXMPP):
         # our roster.
         self.add_event_handler("session_start", self.start)
 
-        
         self.add_event_handler("muc::%s::got_online" % self.room,
                                self.muc_online)
- 
-        
+
     def start(self, event):
         """
         Process the session_start event.
@@ -79,31 +77,31 @@ class MUCBot(sleekxmpp.ClientXMPP):
                                         # password=the_room_password,
                                         wait=True)
         app = Flask(__name__)
-        @app.route('/',methods=['POST'])
+
+        @app.route('/', methods=['POST'])
         def foo():
-           data = json.loads(request.data)
-	   #message="null"
-	   m1 = data["user"]["username"]
-           m2 = data["object_attributes"]["title"]
-	   m3 = data["object_attributes"]["url"]
-	   #m4 = data["object_attributes"]["note"]
-           #m5 = data["issue"]["title"]
-	   #if "issue" == data["object_kind"]:
-           message=m1 + " created a new issue:--> " + m2 + " " + m3
-          # else:
-                #message=m1 + 'commented: ' + m4 + 'on issue:: ' + m5 + m3
-           #try:
-           self.send_message(mto=self.room,mbody=message,mtype='groupchat')
-	   #except:
+            data = json.loads(request.data)
+            # message="null"
+            m1 = data["user"]["username"]
+            m2 = data["object_attributes"]["title"]
+            m3 = data["object_attributes"]["url"]
+            #m4 = data["object_attributes"]["note"]
+            #m5 = data["issue"]["title"]
+            # if "issue" == data["object_kind"]:
+            message = m1 + " created a new issue:--> " + m2 + " " + m3
+           # else:
+            #message=m1 + 'commented: ' + m4 + 'on issue:: ' + m5 + m3
+            # try:
+            self.send_message(mto=self.room, mbody=message, mtype='groupchat')
+            # except:
             #    sys.exc_info()[0]
-           return "OK"
+            return "OK"
         if __name__ == '__main__':
-           app.run(host= '0.0.0.0')
-    
+            app.run(host='0.0.0.0')
 
     def muc_online(self, presence):
         return
-            
+
 
 if __name__ == '__main__':
     # Setup the command line arguments.
