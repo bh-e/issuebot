@@ -87,7 +87,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
             state = data['object_attributes']['state']
             action = data['object_attributes']['action']
             if state == 'opened' and action == 'update':
-                 state = 'edited'
+                state = 'edited'
             msg = "Issue #%d '%s' - %s by %s" % (issue_id,
                                                  issue_title,
                                                  state,
