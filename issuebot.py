@@ -90,11 +90,6 @@ class MUCBot(sleekxmpp.ClientXMPP):
                                                issue_title,
                                                issue_user
                                                )
-            print msg
-            m1 = data["user"]["username"]
-            m2 = data["object_attributes"]["title"]
-            m3 = data["object_attributes"]["url"]
-            message = m1 + " created a new issue:--> " + m2 + " " + m3
             self.send_message(mto=self.room, mbody=msg, mtype='groupchat')
             return "OK"
         if __name__ == '__main__':
