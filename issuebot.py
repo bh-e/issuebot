@@ -84,6 +84,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
             issue_id = data['object_attributes']['iid']
             issue_title = data['object_attributes']['title']
             issue_user = data['user']['name']
+            issue_url = data['object_attributes']['url']
             action = data['object_attributes']['action']
             state = False
             if action == 'open':
@@ -96,13 +97,14 @@ class MUCBot(sleekxmpp.ClientXMPP):
             # If GitLab makes action == update only for issue edits, we can
             # use that
 
-            # elif action == 'update':
-            #    state = 'updated'
+            elif action == 'update':
+                state = 'updated'
             if state:
-                msg = "Issue #%d '%s' - %s by %s" % (issue_id,
+                msg = "Issue #%d '%s' - %s by %s  - " % (issue_id,
                                                      issue_title,
                                                      state,
-                                                     issue_user
+                                                     issue_user,
+					             issue_url
                                                      )
                 self.send_message(mto=self.room, mbody=msg, mtype='groupchat')
             return "OK"
