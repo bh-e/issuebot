@@ -100,7 +100,7 @@ class MUCBot(sleekxmpp.ClientXMPP):
             elif action == 'update':
                 state = 'updated'
             if state:
-                msg = "Issue #%d '%s' - %s by %s  - " % (issue_id,
+                msg = "Issue #%d '%s' - %s by %s  - %s" % (issue_id,
                                                      issue_title,
                                                      state,
                                                      issue_user,
