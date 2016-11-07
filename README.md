@@ -1,6 +1,6 @@
 # Issuebot
 
-## A bot that receives issue infos via webhooks and message to a specified MUC
+## A bot that receives triggered webhooks from remote git repository, parse the content and send as message to a specified MUC
 
 ### Language: python
 #### Used libraries : sleekxmpp, flask
