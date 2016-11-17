@@ -3,7 +3,7 @@
 #
 # Copyright 2016 Abhijith PA <abhijith@openmailbox.org>
 # Copyright 2010 Nathanael C. Fritz (SleekXMPP)
-# Modified from the basic SleekXMPP bot
+# Modified from the basic SleekXMPP bot.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
