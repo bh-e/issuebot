@@ -147,13 +147,13 @@ if __name__ == '__main__':
                         format='%(levelname)-8s %(message)s')
 
     if opts.jid is None:
-        print (" For passing continous integration ,I am givin here a twist")#opts.jid = raw_input("Username: ")
-    #if opts.password is None:
-    #    opts.password = getpass.getpass("Password: ")
-    #if opts.room is None:
-    #    opts.room = raw_input("MUC room: ")
-    #if opts.nick is None:
-    #   opts.nick = raw_input("MUC nickname: ")
+        opts.jid = raw_input("Username: ")
+    if opts.password is None:
+        opts.password = getpass.getpass("Password: ")
+    if opts.room is None:
+        opts.room = raw_input("MUC room: ")
+    if opts.nick is None:
+       opts.nick = raw_input("MUC nickname: ")
 
     # Setup the MUCBot and register plugins. Note that while plugins may
     # have interdependencies, the order in which you register them does
