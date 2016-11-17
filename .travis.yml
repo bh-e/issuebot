@@ -10,4 +10,4 @@ python:
   - "nightly" 
 # command to install dependencies
 install: "pip install -r requirements.txt"
-script: python issuebot.py
+script: python issuebot.py -j i@jabajehgfbthf.com -p 1234567 -r conf@wewdjdfdjdjcjcjchffc.com -n trvs
