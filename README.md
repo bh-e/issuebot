@@ -1,4 +1,5 @@
 # Issuebot
+![master](https://travis-ci.org/bh-e/issuebot.svg?branch=master)
 
 ## A bot that receives triggered webhooks from remote git repository, parse the content and send as message to a specified MUC
 
