@@ -6,3 +6,11 @@
 ### Language: python
 #### Used libraries : sleekxmpp, flask
 
+## How to use
+
+```
+pip install -r requirements.txt
+```
+```
+python issuebot.py
+```
