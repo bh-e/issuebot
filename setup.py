@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     
     name='issuebot',
-    version='1.2.0',
+    version='0.0.1',
     description='Collect issues via webhooks and send as message to MUC',
     long_description='A bot that receives triggered webhooks from remote git repository, parse the content and send as message to a specified MUC',
     url='https://github.com/bh-e/issuebot',
