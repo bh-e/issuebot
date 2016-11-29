@@ -9,8 +9,8 @@
 ## How to use
 
 ```
-pip install -r requirements.txt
+sudo python setup.py install
 ```
 ```
-python issuebot.py
+issuebot
 ```
