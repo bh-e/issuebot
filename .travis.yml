@@ -8,5 +8,6 @@ python:
   - "3.6-dev" 
   - "nightly" 
 # command to install dependencies
-install: "pip install -r requirements.txt"
-script: python -m py_compile issuebot  
+#install: "pip install -r requirements.txt"
+#script: python -m py_compile issuebot  
+script: python setup.py install
